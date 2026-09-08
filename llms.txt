@@ -24,6 +24,11 @@ Profiles: https://www.instagram.com/bureauingold/ · https://www.linkedin.com/co
 
 Social media management, content production, media buying, website maintenance, and reporting as a standing service are outside the practice.
 
+## Markdown versions
+
+Every page is available as clean Markdown at the same address with a .md extension:
+https://bureauingold.com/index.md · terms-of-engagement.md · terms-of-use.md · privacy-notice.md
+
 ## Pages
 
 - [Home](https://bureauingold.com/): the practice, its approach, services, and people.

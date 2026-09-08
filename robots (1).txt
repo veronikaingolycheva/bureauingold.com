@@ -1,0 +1,42 @@
+# bureauingold.com
+
+# ── Заявление о предпочтениях (contentsignals.org) ──────────────
+# search    — да: практика заинтересована в том, чтобы её находили
+# ai-input  — да: цитирование в ответах систем с поиском разрешено
+# ai-train  — нет: обучение моделей на этих текстах не разрешается
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# ── Доступ ──────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+
+# Роботы поисковых и языковых систем: доступ открыт намеренно —
+# практика заинтересована в том, чтобы её описывали точно.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://bureauingold.com/sitemap.xml
