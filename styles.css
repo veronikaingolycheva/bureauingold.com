@@ -11,7 +11,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/eb-garamond-latin-400-normal.woff2") format("woff2");
+  src: url("eb-garamond-latin-400-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("fonts/eb-garamond-latin-500-normal.woff2") format("woff2");
+  src: url("eb-garamond-latin-500-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/instrument-sans-latin-400-normal.woff2") format("woff2");
+  src: url("instrument-sans-latin-400-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("fonts/instrument-sans-latin-500-normal.woff2") format("woff2");
+  src: url("instrument-sans-latin-500-normal.woff2") format("woff2");
 }
 
 :root {
@@ -500,7 +500,70 @@ a { color: inherit; }
   color: var(--ink-soft);
 }
 
-/* ── 05 · Studio ────────────────────────────────────────────────── */
+
+/* ── 04 · Кейс ──────────────────────────────────────────────────
+   Цифры набраны серифом и крупно: в кейсе они и есть содержание,
+   всё остальное — объяснение, почему им можно верить.          */
+
+.case__meta {
+  margin: clamp(1.4rem, 3vw, 2rem) 0 0;
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.case__story {
+  margin-top: clamp(2.4rem, 5vw, 3.5rem);
+}
+
+.figures {
+  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  display: grid;
+  gap: 0;
+}
+
+.figure {
+  display: grid;
+  gap: .4rem clamp(2rem, 6vw, 5rem);
+  padding-block: clamp(1.4rem, 2.6vw, 1.9rem);
+  border-top: 1px solid var(--hair);
+}
+
+.figure:last-child { border-bottom: 1px solid var(--hair); }
+
+.figure__num {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  line-height: 1.05;
+  color: var(--navy);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.figure__note {
+  color: var(--ink-soft);
+  max-width: 30rem;
+}
+
+.case__pipeline {
+  display: block;
+  margin-top: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.case__close {
+  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  padding-top: clamp(1.8rem, 3vw, 2.4rem);
+  border-top: 1px solid var(--champagne);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--navy);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+/* ── 05 · Practice ────────────────────────────────────────────────── */
 
 .facts {
   margin-top: clamp(3.5rem, 8vw, 6rem);
@@ -807,6 +870,11 @@ a { color: inherit; }
   .decline {
     grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
     align-items: start;
+  }
+
+  .figure {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    align-items: baseline;
   }
 
   .people {
