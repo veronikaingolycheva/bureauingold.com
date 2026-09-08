@@ -1,8 +1,42 @@
 /* ════════════════════════════════════════════════════════════════
    BUREAU INGOLD
    ────────────────────────────────────────────────────────────────
+   Шрифты лежат в /fonts и грузятся со своего домена. Ничего
+   постороннего страница не запрашивает.
    Всё настраиваемое собрано в :root. Меняешь там — меняется везде.
    ════════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/eb-garamond-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/eb-garamond-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/instrument-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/instrument-sans-latin-500-normal.woff2") format("woff2");
+}
 
 :root {
   /* Палитра */
@@ -323,6 +357,98 @@ a { color: inherit; }
   max-width: 34ch;
 }
 
+/* ── Отказ · «Not in the practice» ──────────────────────────────
+   Единственный блок на светлом экране с рамкой. Отказ подан как
+   утверждение, поэтому он отделён, а не спрятан внизу мелким.   */
+
+.decline {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(1.8rem, 3vw, 2.4rem);
+  border-top: 1px solid var(--champagne);
+  display: grid;
+  gap: .9rem clamp(2rem, 6vw, 5rem);
+}
+
+.decline__lead {
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.decline__body {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+/* ── Люди ───────────────────────────────────────────────────────
+   Портрет в рамке слева, имя и роль справа. До появления
+   фотографий в рамке стоит монограмма — не заглушка, а приём:
+   монограмма уместна там, где герб не уместен.                 */
+
+.people {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+.person {
+  display: grid;
+  grid-template-columns: clamp(7rem, 16vw, 10.5rem) minmax(0, 1fr);
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+  align-items: start;
+}
+
+.person__frame {
+  aspect-ratio: 4 / 5;
+  background: rgba(19, 35, 63, .05);
+  border: 1px solid var(--hair);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.person__mark {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  letter-spacing: .1em;
+  color: var(--champagne);
+}
+
+.person__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.person__name {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0;
+}
+
+.person__role {
+  margin: .3rem 0 0;
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.person__body {
+  margin: .9rem 0 0;
+  color: var(--ink-soft);
+  max-width: 28rem;
+}
+
 /* ── Отзывы ─────────────────────────────────────────────────────
    Ни звёзд, ни счётчиков, ни аватаров, ни карусели. Доверие здесь
    держится на конкретике подписи, а не на оформлении.           */
@@ -405,6 +531,11 @@ a { color: inherit; }
 
 .contact { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
 
+.contact__line {
+  margin-top: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--on-navy-soft);
+}
+
 .contact__mail {
   display: inline-block;
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
@@ -439,12 +570,186 @@ a { color: inherit; }
   color: var(--on-navy-soft);
 }
 
+.foot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.6rem;
+}
+
 .foot a {
   text-decoration: none;
   transition: color .35s var(--ease);
 }
 
 .foot a:hover { color: var(--on-navy); }
+
+/* ── Правовые страницы ──────────────────────────────────────────
+   Документ читают, а не сканируют: колонка уже, строка длиннее,
+   межстрочный интервал больше, чем на экранах сайта.           */
+
+.doc-body {
+  background: var(--ivory);
+}
+
+.doc-bar {
+  border-bottom: 1px solid var(--hair);
+  background: var(--ivory);
+}
+
+.doc-bar__inner {
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: 1.35rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.doc-bar__mark,
+.doc-bar__back {
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .35s var(--ease);
+}
+
+.doc-bar__mark { color: var(--navy); }
+.doc-bar__back { color: var(--ink-soft); }
+.doc-bar__back:hover { color: var(--navy); }
+
+.doc {
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter) clamp(4rem, 9vw, 7rem);
+  line-height: 1.78;
+}
+
+.doc h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -.012em;
+  color: var(--navy);
+  margin: 0 0 .6rem;
+}
+
+.doc h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin: clamp(3rem, 6vw, 4.5rem) 0 1.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--hair);
+}
+
+.doc h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 2rem 0 .6rem;
+}
+
+.doc p { margin: 0 0 1.15rem; }
+
+.doc strong { font-weight: 500; color: var(--navy); }
+
+.doc em { color: var(--ink-soft); }
+
+.doc a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--champagne);
+}
+
+.doc ul, .doc ol {
+  margin: 0 0 1.15rem;
+  padding-left: 1.3rem;
+  list-style-position: outside;
+}
+
+.doc ul { list-style: none; padding-left: 1.1rem; }
+
+.doc ul li { position: relative; margin-bottom: .5rem; }
+
+.doc ul li::before {
+  content: "—";
+  position: absolute;
+  left: -1.1rem;
+  color: var(--champagne);
+}
+
+.doc ol li { margin-bottom: .5rem; }
+
+.doc hr {
+  border: 0;
+  height: 1px;
+  background: var(--hair);
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0;
+}
+
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: .9375rem;
+}
+
+.doc th, .doc td {
+  text-align: left;
+  padding: .7rem 1rem .7rem 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+}
+
+.doc th {
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Абзацы, набранные прописными, — ограничение ответственности */
+.doc p:has(> strong):first-child { margin-top: 0; }
+
+.doc-foot {
+  border-top: 1px solid var(--hair);
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: 1.6rem var(--gutter) clamp(3rem, 6vw, 4rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 2rem;
+  justify-content: space-between;
+}
+
+.doc-foot p {
+  margin: 0;
+  font-size: var(--t-eyebrow);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.doc-foot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.6rem;
+}
+
+.doc-foot a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color .35s var(--ease);
+}
+
+.doc-foot a:hover { color: var(--navy); }
 
 /* ── Появление при прокрутке ────────────────────────────────────── */
 
@@ -497,6 +802,16 @@ a { color: inherit; }
   .voice {
     grid-template-columns: minmax(0, 1fr) minmax(0, 14rem);
     align-items: start;
+  }
+
+  .decline {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2.5rem, 5vw, 4rem);
   }
 }
 
